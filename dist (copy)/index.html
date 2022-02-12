@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Todo List</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/src/styles/reset.css">
+    <link rel="stylesheet" href="/src/styles/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header-container">
+        <div class="logo-title-wrapper">
+            <div class="logo-wrapper">
+                <img src="images/logo.png">
+            </div>
+            <h3 class="header-title">Todo List.</h3>
+        </div>
+        <i class="fas fa-bars mobile-bar"></i>
+    </header>
+    <div class="main-container">
+        <aside class="sidebar-container">
+            <div class="sidebar-default-inboxs-container">
+                <span class="inbox-wrapper inboxs-wrapper default-active"><i class="fas fa-inbox"></i>Inbox</span>
+                <span class="today-wrapper inboxs-wrapper"><i class="fas fa-calendar-day"></i>Today</span>
+                <span class="week-wrapper inboxs-wrapper"><i class="fas fa-calendar-week"></i>This Week</span>
+            </div>
+            <div class="divider"></div>
+            <div class="sidebar-projects-container">
+                <span class="projects-wrapper"><i class="fas fa-chevron-down projects-chevron"></i>Projects<i
+                        class="fas fa-plus add-project-icon"></i></span>
+            </div>
+            <div class="added-projects-container">
+                <ul class="added-projects-wrapper">
+                    <li class="added-project">Default<i class="fas fa-trash-alt"></i></li>
+                </ul>
+            </div>
+        </aside>
+        <div class="add-projects-modal-container">
+            <div class="add-projects-modal-wrapper">
+                <h2 class="modal-title">Add Projects</h2>
+                <div class="modal-divider"></div>
+                <div class="modal-inputs-wrapper">
+                    <label>Name</label>
+                    <input type="text" class="add-projects-input">
+                    <label>Color</label>
+                    <div class="color-wrapper">
+                        <span class="color-pick">Black</span>
+                        <div class="color-picker-area">
+                            <span class="color-picker color-picker-red">Red</span>
+                            <span class="color-picker color-picker-blue">Blue</span>
+                            <span class="color-picker color-picker-yellow">Yellow</span>
+                            <span class="color-picker color-picker-purple">Purple</span>
+                            <span class="color-picker color-picker-green">Green</span>
+                            <span class="color-picker color-picker-sienna">Sienna</span>
+                            <span class="color-picker color-picker-cyan">Cyan</span>
+                            <span class="color-picker color-picker-silver">Silver</span>
+                            <span class="color-picker color-picker-black">Black</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer-section">
+                    <div class="modal-divider"></div>
+                    <div class="modal-buttons-wrapper">
+                        <button class="modal-buttons cancel-btn">Cancel</button>
+                        <button class="modal-buttons add-btn">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="inbox-container">
+            <div class="inbox-wrapper">
+                <h1>Inbox</h1>
+                <div class="added-tasks">
+                </div>
+                <div class="add-task-wrapper">
+                    <span class="add-task"><i class="fas fa-plus add-task-icon"></i>Add task</span>
+                    <div class="add-task-select">
+                        <input class="name-text-input" type="text" placeholder="Task Title">
+                        <input class="desc-text-input" type="text" placeholder="Description">
+                        <div class="add-task-select-buttons">
+                            <button class="task-buttons task-add-btn">Add task</button>
+                            <button class="task-buttons task-cancel-btn">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="today-container">
+            <div class="today-wrapper">
+                <h1>Today</h1>
+                <div class="added-tasks">
+                </div>
+                <div class="add-task-wrapper">
+                    <span class="add-task"><i class="fas fa-plus add-task-icon"></i>Add task</span>
+                    <div class="add-task-select">
+                        <input class="name-text-input" type="text" placeholder="Task Title">
+                        <input class="desc-text-input" type="text" placeholder="Description">
+                        <div class="add-task-select-buttons">
+                            <button class="task-buttons task-add-btn">Add task</button>
+                            <button class="task-buttons task-cancel-btn">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="thisweek-container">
+            <div class="thisweek-wrapper">
+                <h1>This Week</h1>
+                <div class="added-tasks">
+                </div>
+                <div class="add-task-wrapper">
+                    <span class="add-task"><i class="fas fa-plus add-task-icon"></i>Add task</span>
+                    <div class="add-task-select">
+                        <input class="name-text-input" type="text" placeholder="Task Title">
+                        <input class="desc-text-input" type="text" placeholder="Description">
+                        <div class="add-task-select-buttons">
+                            <button class="task-buttons task-add-btn">Add task</button>
+                            <button class="task-buttons task-cancel-btn">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
