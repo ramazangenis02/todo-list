@@ -2,6 +2,7 @@ import ui from "./modules/ui";
 import todayFunction from "./modules/today";
 import inboxFunction from "./modules/inbox";
 import thisweekFunction from "./modules/thisweek";
+import projectFunc from "./modules/projects";
 
 //Open and close mobile bar
 ui.openMobileBar();
@@ -20,3 +21,6 @@ todayFunction();
 
 //Thisweek function
 thisweekFunction();
+
+//Projects function
+projectFunc();

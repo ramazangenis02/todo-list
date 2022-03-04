@@ -515,6 +515,7 @@ body {
   align-items: center;
   width: 85%;
   flex-direction: column;
+  display: none;
 }
 
 .today-container > h1 {
@@ -536,6 +537,7 @@ body {
   align-items: center;
   width: 85%;
   flex-direction: column;
+  display: none;
 }
 
 .thisweek-container > h1 {

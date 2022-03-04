@@ -7,6 +7,12 @@ const inboxFunction = () => {
   const todayContainer = document.querySelector(".today-container");
   const thisweekContainer = document.querySelector(".thisweek-container");
 
+  const addTask = document.querySelectorAll(".add-task");
+  const addTaskSelectAll = document.querySelectorAll(".add-task-select");
+
+  const nameTextInput = document.querySelectorAll(".name-text-input");
+  const descTextInput = document.querySelectorAll(".desc-text-input");
+
   inboxWrapper.addEventListener("click", () => {
     if (
       todayWrapper.classList.contains("default-active") ||
@@ -20,6 +26,22 @@ const inboxFunction = () => {
       todayContainer.style.display = "none";
       thisweekContainer.style.display = "none";
     }
+
+    addTaskSelectAll.forEach(e => {
+      e.style.display = "none";
+    });
+
+    nameTextInput.forEach(e => {
+      e.value = "";
+    });
+
+    descTextInput.forEach(e => {
+      e.value = "";
+    });
+
+    addTask.forEach(e => {
+      e.style.display = "initial";
+    });
   });
 };
 

@@ -34,6 +34,7 @@ const ui = (() => {
     addedProjectAll.forEach(e => {
       e.addEventListener("mouseover", () => {
         e.firstElementChild.classList.add("active-trash-icon");
+        console.log(e);
       });
 
       e.addEventListener("mouseout", () => {
@@ -154,6 +155,9 @@ const ui = (() => {
     const addBtn = document.querySelector(".add-btn");
     const addProjectInput = document.querySelector(".add-projects-input");
 
+    const addedProjectWrapperFirst = document.querySelector(
+      ".added-projects-wrapper"
+    );
     cancelBtn.addEventListener("click", () => {
       addProjectsModalContainer.style.display = "none";
       headerContainer.style.pointerEvents = "all";
@@ -172,6 +176,38 @@ const ui = (() => {
         addBtn.style.opacity = "0.5";
         addBtn.style.pointerEvents = "none";
       }
+    });
+
+    class Project {
+      constructor(name) {
+        this.name = name;
+      }
+    }
+
+    let projectsList = [];
+
+    function createProject() {
+      const addedProject = document.createElement("li");
+      const trashIconCreate = document.createElement("i");
+      // trashIconCreate.classList.add("fas");
+      // trashIconCreate.classList.add("fa-trash-alt");
+      trashIconCreate.classList.add("fas");
+      trashIconCreate.classList.add("fa-trash-alt");
+      addedProject.classList.add("added-project");
+      let proje = new Project(addProjectInput.value);
+      projectsList.push(proje);
+      let last = projectsList.length - 1;
+      addedProject.innerHTML = projectsList[last].name;
+      addedProject.appendChild(trashIconCreate);
+      addedProjectWrapperFirst.appendChild(addedProject);
+    }
+
+    addBtn.addEventListener("click", () => {
+      console.log(colorPick.innerHTML);
+      addProjectsModalContainer.style.display = "none";
+      headerContainer.style.pointerEvents = "all";
+      createProject();
+      resetInput();
     });
 
     //Reset Input
@@ -219,25 +255,40 @@ const ui = (() => {
     });
 
     //When click add task icon opened add task select
-    const addTask = document.querySelector(".add-task");
+    const addTask = document.querySelectorAll(".add-task");
+    const addTaskSelectAll = document.querySelectorAll(".add-task-select");
 
-    addTask.addEventListener("click", () => {
-      addTaskSelect.style.display = "block";
-      addTask.style.display = "none";
+    addTask.forEach(e => {
+      e.addEventListener("click", () => {
+        addTaskSelectAll.forEach(e => {
+          e.style.display = "block";
+        });
+        e.style.display = "none";
+      });
     });
 
     //Task add and cancel buttons function
-    const taskAddBtn = document.querySelector(".task-add-btn");
-    const taskCancelBtn = document.querySelector(".task-cancel-btn");
+    const taskCancelBtn = document.querySelectorAll(".task-cancel-btn");
 
-    const nameTextInput = document.querySelector(".name-text-input");
-    const descTextInput = document.querySelector(".desc-text-input");
+    const nameTextInput = document.querySelectorAll(".name-text-input");
+    const descTextInput = document.querySelectorAll(".desc-text-input");
 
-    taskCancelBtn.addEventListener("click", () => {
-      addTask.style.display = "initial";
-      addTaskSelect.style.display = "none";
-      nameTextInput.value = "";
-      descTextInput.value = "";
+    taskCancelBtn.forEach(e => {
+      e.addEventListener("click", () => {
+        addTask.forEach(e => {
+          e.style.display = "initial";
+        });
+        addTaskSelectAll.forEach(e => {
+          e.style.display = "none";
+        });
+        nameTextInput.forEach(e => {
+          e.value = "";
+        });
+
+        descTextInput.forEach(e => {
+          e.value = "";
+        });
+      });
     });
   };
 
