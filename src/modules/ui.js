@@ -20,8 +20,6 @@ const ui = (() => {
     const sidebarContainer = document.querySelector(".sidebar-container");
     const addIcon = document.querySelector(".fa-plus");
 
-    const addedProjectAll = document.querySelectorAll(".added-project");
-    const trashIcon = document.querySelector(".fa-trash-alt");
     sidebarContainer.addEventListener("mouseover", () => {
       addIcon.classList.add("active-add-icon");
     });
@@ -29,19 +27,6 @@ const ui = (() => {
     sidebarContainer.addEventListener("mouseout", () => {
       addIcon.classList.remove("active-add-icon");
     });
-
-    //TEST AREA
-    addedProjectAll.forEach(e => {
-      e.addEventListener("mouseover", () => {
-        e.firstElementChild.classList.add("active-trash-icon");
-        console.log(e);
-      });
-
-      e.addEventListener("mouseout", () => {
-        e.firstElementChild.classList.remove("active-trash-icon");
-      });
-    });
-    //TEST AREA
 
     //When click change projects chevron icon
     const projectsWrapper = document.querySelector(".projects-wrapper");
@@ -189,8 +174,6 @@ const ui = (() => {
     function createProject() {
       const addedProject = document.createElement("li");
       const trashIconCreate = document.createElement("i");
-      // trashIconCreate.classList.add("fas");
-      // trashIconCreate.classList.add("fa-trash-alt");
       trashIconCreate.classList.add("fas");
       trashIconCreate.classList.add("fa-trash-alt");
       addedProject.classList.add("added-project");
@@ -200,6 +183,10 @@ const ui = (() => {
       addedProject.innerHTML = projectsList[last].name;
       addedProject.appendChild(trashIconCreate);
       addedProjectWrapperFirst.appendChild(addedProject);
+
+      trashIconCreate.addEventListener("click", () => {
+        addedProjectWrapperFirst.removeChild(addedProject);
+      });
     }
 
     addBtn.addEventListener("click", () => {
@@ -233,11 +220,9 @@ const ui = (() => {
     const addedProjectWrapper = document.querySelector(
       ".added-projects-wrapper"
     );
-    const trashIconAll = document.querySelectorAll(".fa-trash-alt");
-    trashIconAll.forEach(e => {
-      e.addEventListener("click", () => {
-        addedProjectWrapper.removeChild(e.parentElement);
-      });
+    const trashIcon = document.querySelector(".fa-trash-alt");
+    trashIcon.addEventListener("click", () => {
+      addedProjectWrapper.removeChild(trashIcon.parentElement);
     });
   };
 

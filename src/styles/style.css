@@ -170,12 +170,17 @@ body {
 }
 
 .added-project > i {
-  margin-left: 104px;
+  position: absolute;
+  right: 18px;
   display: none;
 }
 
 .added-project > i:hover {
   opacity: 0.3;
+}
+
+.added-project:hover > i {
+  display: inline;
 }
 
 .added-project::before {
